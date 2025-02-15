@@ -2,7 +2,13 @@ import streamlit as st
 import json
 
 # Nhập dữ liệu JSON trực tiếp
-json_input = st.text_area("Dán dữ liệu JSON sản phẩm (dạng raw)")
+json_input = st.text_area(
+    "Dán dữ liệu JSON sản phẩm (dạng raw)", 
+    height=400, 
+    max_chars=None, 
+    placeholder="Dán dữ liệu JSON vào đây...",
+    help="Cuộn xuống để xem toàn bộ nội dung",
+)
 
 # Nhập danh sách sản phẩm
 product_input = st.text_area("Nhập danh sách sản phẩm (mỗi dòng một sản phẩm)")
@@ -23,13 +29,17 @@ if json_input and product_input:
                 if product == item_name:
                     matched_products.append({
                         "Tên sản phẩm": item['name'],
-                        "ID": item['item_id']
+                        "ID": item['id']
                     })
 
         # Hiển thị kết quả
         if matched_products:
             st.success(f"Tìm thấy {len(matched_products)} sản phẩm trùng khớp:")
             st.table(matched_products)
+            st.text_area(
+    "Danh sách số thứ tự", 
+    ', '.join([str(item["ID"]) for item in matched_products])
+)
         else:
             st.warning("Không tìm thấy sản phẩm nào trùng khớp.")
     except json.JSONDecodeError:
