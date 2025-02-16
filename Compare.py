@@ -37,9 +37,7 @@ if json_input and product_input:
         if matched_products:
             st.success(f"Tìm thấy {len(matched_products)} sản phẩm trùng khớp:")
             st.table(matched_products)
-            st.text_area(
-    "Danh sách số thứ tự", 
-    ', '.join([str(item["ID"]) for item in matched_products])
+
 )
         else:
             st.warning("Không tìm thấy sản phẩm nào trùng khớp.")
