@@ -38,7 +38,7 @@ if json_input and product_input:
             st.success(f"Tìm thấy {len(matched_products)} sản phẩm trùng khớp:")
             st.table(matched_products)
 
-)
+
         else:
             st.warning("Không tìm thấy sản phẩm nào trùng khớp.")
     except json.JSONDecodeError:
