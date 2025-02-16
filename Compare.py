@@ -28,9 +28,10 @@ if json_input and product_input:
             for product in product_list:
                 if product == item_name:
                     matched_products.append({
-                        "Tên sản phẩm": item['name'],
-                        "ID": item['id']
-                    })
+    "Tên sản phẩm": item['name'],
+    "Số thứ tự": item['id'],
+    "Item ID": item['item_id']
+})
 
         # Hiển thị kết quả
         if matched_products:
